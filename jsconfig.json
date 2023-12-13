@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@App": ["app"],
+      "@Api": ["app/services"],
+      "@Assets": ["app/assets"],
+      "@Components": ["app/components"],
+      "@Features": ["app/features"],
+      "@Slicers": ["app/slicers"],
+      "@Navigations": ["app/navigations"],
+      "@Store": ["app/store"]
+    }
+  },
+  "include": ["app/**/*"],
+  "exclude": ["node_modules", "build"]
+}
