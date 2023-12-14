@@ -17,7 +17,7 @@ interface PokemonType {
 
 const PokemonDetail: React.FC = ({navigation, route}: any) => {
   const {data, isLoading, isError} = useGetPokemonDetailsQuery(
-    route.params.name,
+    route?.params?.name,
   )
 
   // getting types as string and adding useMemo to run only once

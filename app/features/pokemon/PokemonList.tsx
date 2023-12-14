@@ -34,6 +34,7 @@ const PokemonList: React.FC = ({navigation}: any) => {
           .duration(1000)
           .easing(Easing.out(Easing.exp))}>
         <TouchableOpacity
+          testID={`${item.name}-touch`}
           onPress={() => handlePokemonTap(item)}
           className="px-4 flex-row items-center  border-t border-slate-200 py-4">
           <Animated.Image
@@ -58,7 +59,7 @@ const PokemonList: React.FC = ({navigation}: any) => {
   }
 
   return (
-    <View className="bg-white">
+    <View className="bg-white" data-testId="pokemonList">
       <FlatList
         renderItem={Item}
         data={pokemonList}

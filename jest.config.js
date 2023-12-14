@@ -89,6 +89,7 @@ module.exports = {
   moduleNameMapper: {
     '^@App(.*)$': '<rootDir>/app/$1',
     '^@Api(.*)$': '<rootDir>/app/services/$1',
+    '^@Assets(.*)$': '<rootDir>/app/assets/$1',
     '^@Components(.*)$': '<rootDir>/app/components/$1',
     '^@Features(.*)$': '<rootDir>/app/features/$1',
     '^@Slicers(.*)$': '<rootDir>/app/slicers/$1',
@@ -141,7 +142,7 @@ module.exports = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
+  // setupFilesAfterEnv: [],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -174,10 +175,10 @@ module.exports = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-    '\\.(ts|tsx)$': 'ts-jest',
-  },
+  // transform: {
+  //   '^.+\\.(js|jsx)$': 'babel-jest',
+  //   '^.+\\.(ts|tsx)$': 'ts-jest',
+  // },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [

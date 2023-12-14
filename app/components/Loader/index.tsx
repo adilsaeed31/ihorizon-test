@@ -3,7 +3,7 @@ import {View, ActivityIndicator} from 'react-native'
 
 const Loader = memo(() => {
   return (
-    <View className="flex-1 items-center justify-center">
+    <View className="flex-1 items-center justify-center" testID="loader">
       <ActivityIndicator size="large" color="#2e7cf6" />
     </View>
   )

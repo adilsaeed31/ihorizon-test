@@ -1,19 +1,57 @@
 import React from 'react'
-import {render} from '@testing-library/react-native'
+import {fireEvent, render, screen, waitFor} from '@testing-library/react-native'
 
-import App from '../App'
+import App from '@App'
+import {Loader, ErrorBox, Row} from '@Components'
 
-test('renders App component', () => {
-  // Render the App component with necessary providers
-  const {getByTestId} = render(<App />)
+test('render Loader component', () => {
+  const {getByTestId} = render(<Loader />)
 
-  // Check if StatusBar is present
-  const statusBar = getByTestId('status-bar')
-  expect(statusBar).toBeTruthy()
+  const element = getByTestId('loader')
 
-  // Check if SafeAreaView is present
-  const safeAreaView = getByTestId('safe-area-view')
-  expect(safeAreaView).toBeTruthy()
+  expect(element).toBeTruthy()
+})
 
-  // You can add more assertions based on your specific requirements
+test('render ErrorBox component', () => {
+  const {getByTestId} = render(<ErrorBox />)
+
+  const element = getByTestId('errorBox')
+
+  expect(element).toBeTruthy()
+})
+
+test('render Row component', () => {
+  const {getByTestId} = render(<Row title="test" value="test" />)
+
+  const element = getByTestId('row')
+
+  expect(element).toBeTruthy()
+})
+
+test('renders Pokemon List Screen', async () => {
+  render(<App />)
+
+  waitFor(() => {
+    const element = screen.getByText('bulbasaur')
+
+    expect(element).toBeTruthy()
+  })
+})
+
+test('renders Pokemon Detail Screen', async () => {
+  render(<App />)
+
+  await waitFor(() => {
+    // Find the button that triggers navigation
+    const buttonElement = screen.getByTestId('bulbasaur-touch')
+
+    // Fire a press event on the button
+    fireEvent.press(buttonElement)
+  })
+
+  await waitFor(() => {
+    const element = screen.getByText('bulbasaur')
+
+    expect(element).toBeTruthy()
+  })
 })

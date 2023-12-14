@@ -7,9 +7,7 @@ export interface PokeMon {
 
 export const pokemonApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      // (process.env.REACT_APP_BASE_API_URL as string) ??
-      'https://pokeapi.co/api/v2/',
+    baseUrl: 'https://pokeapi.co/api/v2/',
   }),
   endpoints: build => ({
     getPokemonList: build.query<{results: PokeMon[]}, void>({
